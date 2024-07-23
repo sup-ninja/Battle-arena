@@ -12,32 +12,32 @@ module.exports = {
         test: /\.js$/,
         exclude: /node_modules/,
         use: {
-          loader: "babel-loader"
-        }
+          loader: "babel-loader",
+        },
       },
       {
         test: [/\.vert$/, /\.frag$/],
-        use: "raw-loader"
+        use: "raw-loader",
       },
       {
         test: /\.(gif|png|jpe?g|svg|xml|cur|mp3)$/i,
-        use: "file-loader"
-      }
-    ]
+        use: "file-loader",
+      },
+    ],
   },
   entry: {
-    app: ["./client/src/index.js"]
+    app: ["./client/src/index.js"],
   },
   plugins: [
     new CleanWebpackPlugin(["public"], {
-      root: path.resolve(__dirname, "client/public")
+      root: path.resolve(__dirname, "client/public"),
     }),
     new webpack.DefinePlugin({
       CANVAS_RENDERER: JSON.stringify(true),
-      WEBGL_RENDERER: JSON.stringify(true)
+      WEBGL_RENDERER: JSON.stringify(true),
     }),
     new HtmlWebpackPlugin({
-      template: "./client/src/index.html"
-    })
-  ]
+      template: "./client/src/index.html",
+    }),
+  ],
 };
